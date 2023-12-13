@@ -60,3 +60,14 @@ export const dummyCards = [
     imgSrc: "BonniePD2.jpg",
   },
 ];
+
+const prefixImgURL = function (imgSrc, prefix = "/src/assets/") {
+  return prefix + imgSrc;
+};
+
+export const fixedDummyCards = dummyCards.map((card) => {
+  return {
+    ...card,
+    imgSrc: prefixImgURL(card.imgSrc),
+  };
+});
