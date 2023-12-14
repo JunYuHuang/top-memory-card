@@ -42,4 +42,14 @@
 
 ## Pseudocode
 
-- TODO
+- game loop
+  - player clicks on a card
+    - if the card has been clicked on (i.e. visited) before,
+      - game ends so update the game state to start a new game
+        - set `maxScore` to the max of itself and `score`
+        - set `score` to 0
+        - set `visited` to an empty set
+    - else (card has not been clicked before),
+      - `score++`
+      - add the id of the card clicked to `visited`
+    - shuffle the order of cards displayed
