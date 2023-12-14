@@ -1,5 +1,4 @@
 "use strict";
-import { fixedDummyCards } from "./dummyCards";
 
 function randomPos(array) {
   if (array.length < 1) throw new Error("Array is empty!");
@@ -27,10 +26,6 @@ function reorder(array, orderOfIndices) {
   return res;
 }
 
-function getDummyCards() {
-  return fixedDummyCards;
-}
-
 function getCards() {
   // TODO
   return [];
@@ -45,4 +40,4 @@ function getIndices(arraySize) {
   return res;
 }
 
-export { shuffle, reorder, getDummyCards, getCards, getIndices };
+export { shuffle, reorder, getCards, getIndices };
