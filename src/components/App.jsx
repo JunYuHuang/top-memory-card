@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { shuffle } from "../lib/utils";
 import { dummyCards } from "../lib/dummyCards.js";
+import Header from "./Header.jsx";
 import Card from "./Card.jsx";
 
 function App() {
@@ -10,6 +11,10 @@ function App() {
   const [visitedCardIds, setVisitedCardIds] = useState(new Set());
   const [score, setScore] = useState(0);
   const [maxScore, setMaxScore] = useState(0);
+
+  useEffect(() => {
+    // setCards([]);
+  }, []);
 
   const resetGame = function () {
     setMaxScore((prevMaxScore) => Math.max(prevMaxScore, score));
@@ -33,12 +38,7 @@ function App() {
   return (
     <main className="flex flex-col items-center min-h-screen">
       <div className="max-w-screen-md min-w-[200px] w-full my-8 px-4">
-        <h1 className="mb-6 text-5xl font-bold uppercase">Memory Card</h1>
-        <p className="mb-6">
-          Score points by clicking on cards that you have not clicked on!
-        </p>
-        <p className="text-right text-xl">Current Score: {score}</p>
-        <p className="text-right mb-3 text-xl">Best Score: {maxScore}</p>
+        <Header {...{ score, maxScore }} />
         <div
           className="grid gap-4 grid-cols-[repeat(auto-fill,_minmax(150px,_1fr))]"
           onClick={handleCardClick}
